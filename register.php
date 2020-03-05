@@ -167,7 +167,7 @@ if (isset($_POST['register_button'])){
     <form action="register.php" method="POST">
         <!-- uzupełnione dane zostaną wysłane na podany adres register.php -->
         <input type="text" name="register_firstName" placeholder="First name" value="<?php 
-        if($_SESSION['register_firstName']) {
+        if(isset($_SESSION['register_firstName'])) {
             echo $_SESSION['register_firstName'];
         } ?>" required> 
         <!-- dzięki wstawce php - do pola zostanie przekazana wartość wprowadzona podczas sesji trwającej - imię -->
@@ -178,7 +178,7 @@ if (isset($_POST['register_button'])){
         ?>
 
         <input type="text" name="register_lastName" placeholder="Last name" value="<?php 
-        if($_SESSION['register_lastName']) {
+        if(isset($_SESSION['register_lastName'])) {
             echo $_SESSION['register_lastName'];
         } ?>" required>
         <!-- dzięki wstawce php - do pola zostanie przekazana wartość wprowadzona podczas sesji trwającej - nazwisko -->
@@ -189,13 +189,13 @@ if (isset($_POST['register_button'])){
         ?> 
 
         <input type="email" name="register_email" placeholder="Email" value="<?php 
-        if($_SESSION['register_email']) {
+        if(isset($_SESSION['register_email'])) {
             echo $_SESSION['register_email'];
         } ?>" required>
         <!-- dzięki wstawce php - do pola zostanie przekazana wartość wprowadzona podczas sesji trwającej - email -->
         <br>       
         <input type="email" name="register_email2" placeholder="Confirm Email" value="<?php 
-        if($_SESSION['register_email2']) {
+        if(isset($_SESSION['register_email2'])) {
             echo $_SESSION['register_email2'];
         } ?>" required>
         <br>
