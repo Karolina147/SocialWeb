@@ -1,6 +1,7 @@
 <?php
 require 'config/config.php';
-require 'includes/form_handlers/register_handler.php';
+require 'includes/form_handlers/register_handler.php'; // register będzie miał już wszytskie informacje z config
+require 'includes/form_handlers/login_handler.php'; // login musi byc po register, bo korzysta z danych w register_handler
 
 ?>
 
@@ -12,7 +13,26 @@ require 'includes/form_handlers/register_handler.php';
     <title>Register</title>
 </head>
 <body>
+    <!-- LOGOWANIE -->
+    <form action="register.php" method ="POST"> 
+    <!-- wysyłanie danych do logowania metodą POST -->
+        <input type="email" name = "log_email" placeholder="Email address" value="<?php 
+        if(isset($_SESSION['log_email'])) {
+            echo $_SESSION['log_email'];
+        } ?>" required> 
+        <!-- required - pole wymagane - bez niego nie uda się wysłać formularza -->
+        <br>
+        <input type="password" name = "log_password" placeholder="Password">
+        <br>
+        <input type="submit" name = "login_button" placeholder="Login">
+        <br>
+        <!-- wyświetlenie wiadomości o błędzie -->
+        <?php
+        if(in_array("Email or password was incorrect<br>", $error_array)) echo "Email or password was incorrect<br>"
+        ?>
 
+    </form>
+    <!-- REJESTRACJA -->
     <form action="register.php" method="POST">
         <!-- uzupełnione dane zostaną wysłane na podany adres register.php -->
         <input type="text" name="register_firstName" placeholder="First name" value="<?php 
