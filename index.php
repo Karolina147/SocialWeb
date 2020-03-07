@@ -1,17 +1,10 @@
 <?php
-
-require 'config/config.php';
+    include("includes/header.php");
+    // session_destroy(); // koniec sesji aby przetestować przekierowanie dla niezalogowanego użytkownika
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media</title>
-</head>
-<body>
     Hello
+    
 </body>
 </html>
