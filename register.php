@@ -121,14 +121,12 @@ require 'includes/form_handlers/login_handler.php'; // login musi byc po registe
                         if(in_array("Passwords do not match<br>",$error_array)) echo "Passwords do not match<br>"; 
                         else if(in_array("Your password can only contain english letters or numbers<br>",$error_array)) echo "Your password can only contain english letters or numbers<br>"; // wyświetlanie błedu z tablicy błędów
                         else if(in_array("Your password must be between 5 and 30 characters<br>",$error_array)) echo "Your password must be between 5 and 30 characters<br>"; // wyświetlanie błedu z tablicy błędów
-                    ?> 
-
+                    ?>                                
+                    <input type="submit" name="register_button" value="Register" required>
+                    <br>
                     <?php 
                         if(in_array("<span style='color:blue'> You are all set. Go ahead and login</span><br>",$error_array)) echo "<span style='color:blue'> You are all set. Go ahead and login</span><br>"; // wyświetlanie napisu o poprawnym zalogowaniu
                     ?>
-                               
-                    <input type="submit" name="register_button" value="Register" required>
-                    <br>
                     <a href="#" id="signin" class="signin">Already have an account? Sign in here</a>
                 </form>
             
