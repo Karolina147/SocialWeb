@@ -89,7 +89,7 @@ if (isset($_POST['register_button'])){
     array_push($error_array, "Your last name name must be between 2 and 25 characters<br>");
     }
     if($password != $password2) {
-        array_push($error_array, "Passwords do not match<br");
+        array_push($error_array, "Passwords do not match<br>");
     }
     else {
         if(preg_match('/[^A-Za-z0-9]/', $password)) { // sprawdzenie czy hasło zawiera tlyko duze/małe litery A-Z i cyfry
@@ -98,7 +98,7 @@ if (isset($_POST['register_button'])){
     }
 
     if(strlen($password) > 30 || strlen($password) < 5) {
-        array_push($error_array, "Your password must be between 6 and 30 characters<br>");
+        array_push($error_array, "Your password must be between 5 and 30 characters<br>");
     }
 
     if(empty($error_array)) {
