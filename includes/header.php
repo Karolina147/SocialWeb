@@ -32,9 +32,6 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css"> 
     <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
 
-
-
-
 </head>
 <body>
 
@@ -45,7 +42,8 @@
         </div>
 
         <nav>
-            <a href="#">
+            <!-- link do profilu -->
+            <a href="<?php echo $userLoggedIn; ?>">
 				<?php echo $user['first_name']; ?>
 			</a>
 
@@ -76,7 +74,7 @@
         </nav>      
 
     </div>
-    
+
     <!-- div wrapper - do stylowania zdjęcia, zamknięcie diva w index.php -->
     <div class="wrapper">
         

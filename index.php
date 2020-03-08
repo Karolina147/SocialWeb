@@ -4,14 +4,14 @@
 
 ?>
     <div class="user_details column">
-        <!-- dodanie zdjęcia za pomocą linka do bazy danych - zdjęcie -->
-        <a href="#"> <img src="<?php echo $user['profile_pic']; ?>"></a> 
+        <!-- dodanie zdjęcia za pomocą linka do bazy danych - , po kliknięciu na zdjęcie przejście do profilu  zdjęcie -->
+        <a href="<?php echo $userLoggedIn; ?>"> <img src="<?php echo $user['profile_pic']; ?>"></a> 
         
             <!-- div ze zdjęciem i liczbą postow like'ów -->
             <div class="user_details_left_right">
 
-                <!-- wstawienie imienia i nazwiska do pola ze zdjęciem -->
-                <a href="#">
+                <!-- wstawienie imienia i nazwiska do pola ze zdjęciem, wstawienie linku do profilu-->
+                <a href="<?php echo $userLoggedIn; ?>">
                     <?php 
                         echo $user['first_name'] . " " . $user['last_name'];
                     ?>
