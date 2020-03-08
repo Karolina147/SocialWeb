@@ -119,17 +119,17 @@ if (isset($_POST['register_button'])){
         // Przypisanie zdjęcia
         $random = rand(1,6);
         if($random == 1)
-        $profile_pic = "assets/images/profile_pics/default/head_wet_asphalt.png";
+        $profile_pic = "assets/images/profile_pics/defaults/head_wet_asphalt.png";
         else if($random == 2)
-        $profile_pic = "assets/images/profile_pics/default/head_turqoise.png";
+        $profile_pic = "assets/images/profile_pics/defaults/head_turqoise.png";
         else if($random == 3)
-        $profile_pic = "assets/images/profile_pics/default/head_sun_flower.png";
+        $profile_pic = "assets/images/profile_pics/defaults/head_sun_flower.png";
         else if($random == 4)
-        $profile_pic = "assets/images/profile_pics/default/head_sun_flower.png";
+        $profile_pic = "assets/images/profile_pics/defaults/head_sun_flower.png";
         else if($random == 5)
-        $profile_pic = "assets/images/profile_pics/default/head_belize_hole.png";
+        $profile_pic = "assets/images/profile_pics/defaults/head_belize_hole.png";
         else if($random == 6)
-        $profile_pic = "assets/images/profile_pics/default/head_alizarin.png";
+        $profile_pic = "assets/images/profile_pics/defaults/head_alizarin.png";
 
 
         //ZAPIS W BAZIE

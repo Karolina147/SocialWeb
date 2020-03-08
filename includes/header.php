@@ -73,7 +73,11 @@
                 <i class="fa fa-cog fa-lg"></i>
             </a>    
 
-        </nav>
+        </nav>      
 
     </div>
+    
+    <!-- div wrapper - do stylowania zdjęcia, zamknięcie diva w index.php -->
+    <div class="wrapper">
+        
 

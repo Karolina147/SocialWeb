@@ -9,6 +9,7 @@
 
 body {
     line-height: 17px;
+    background-color: #fbfbfb;
 }
 
 .top_bar {
@@ -19,6 +20,8 @@ body {
     border-bottom: solid 0.15em #077686;
     margin: 0 0 10px 0;
     display: inline-flex;
+    position: fixed;
+    z-index: 10;
 }
 
 .logo a {
@@ -52,4 +55,84 @@ nav a {
 nav a:hover {
     border-bottom: 5px solid #18d9db;
     color: #077686
+}
+
+.wrapper {
+	margin: 0 auto;
+	top: 50px;
+	position: relative;
+	padding: 0 10px;
+	width: 75%;
+	min-width: 950px;
+}
+
+.column {
+    background-color:#faffff;
+    padding: 10px;
+    border: solid 1px lightgrey;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px lightgrey;
+    z-index: -1;
+}
+
+.user_details {
+	width: 250px;
+	float: left;
+	margin-bottom: 20px;
+}
+
+.user_details img {
+	height: 120px;
+	border-radius: 5px;
+	margin-right: 5px;
+}
+
+.user_details_left_right {
+    top:40px;
+	width: 120px;
+	display: inline-table;
+	position: absolute;
+}
+
+
+.main_column {
+    float:right;
+    width: 70%;
+    z-index: -1;
+    min-height: 60px;
+}
+.post_form {
+    width: 100%;
+}
+
+.post_form textarea {
+    width:81%;
+    height:60px;
+    border-radius: 5px;
+    margin-right: 5px;
+    border: solid 1px lightgrey;
+    font-size:12px;
+    padding: 5px;
+}
+textarea:focus {
+    outline:0;
+}
+.post_form input[type="submit"] {
+    width: 11%;
+    height:60px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1b7f8c;
+    font-family: "Bellota-BoldItalic", sans-serif;
+    color:lightcyan;
+    text-shadow: #1d303a  0.5px 0.5px 0px;
+    font-size: 90%;
+    position: absolute;
+    outline:0;
+    margin:0;
+}
+
+.post_form input[type="submit"]:active {
+    /* przesunięcie tekstu przy kliknięciu */
+    padding: 5px 4px 4px 5px;
 }
