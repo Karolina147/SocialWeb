@@ -1,6 +1,16 @@
 <?php
     include("includes/header.php");
     // session_destroy(); // koniec sesji aby przetestować przekierowanie dla niezalogowanego użytkownika
+    include("includes/classes/User.php");
+    include("includes/classes/Post.php");
+    
+    
+    if(isset($_POST['post'])){
+        $post = new Post($connect, $userLoggedIn); // tworzymy instancję klasy
+        $post->submitPost($_POST['post_text'], 'none');
+        header("Location: index.php"); // usuniecie standardowego okna o powtórne przesłanie formularza po odświeżeniu strony (gdy już wstawiliśmy np.post) - zostanie po prostu odświeżona strona index
+    }
+    
 
 ?>
     <div class="user_details column">
@@ -31,12 +41,16 @@
         <form class="post_form" action="index.php" method="POST">
             <textarea name="post_text" id="post_text" placeholder="Got something to say?"></textarea>
             <input type="submit" name="post" id="post_button" value="Post">
-            
             <hr>
-
-
         </form>
-        
+
+        <?php 
+
+		$user_obj = new User($connect, $userLoggedIn);
+		echo $user_obj->getFirstAndLastName();
+
+		?>
+
     </div>
 
 
