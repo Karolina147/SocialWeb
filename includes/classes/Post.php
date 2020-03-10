@@ -44,6 +44,41 @@ class Post {
 			$update_query = mysqli_query($this->connect, "UPDATE users SET num_posts='$num_posts' WHERE username='$added_by'");
 
     }
+
+    public function loadPostsFriends() {
+        $str = ''; // string do zwrócenia //
+        $data = mysqli_query($this->connect, "SELECT * FROM posts WHERE deleted='no', ORDER BY id DESC"); // wyświetlenie postów w kolejności malejącej (desc)
+
+        while($row = mysqli_fetch_array($data_query)) {
+            // przypisanie danych z bazy do zmiennych
+            $id = $row['id'];
+            $body = $row['body'];
+            $added_by = $row['added_by'];
+            $date_time = $row['date_added'];
+
+            //przygotowanie user_to string aby było wyświetlone gdy niezaadresowane do innego użytkownika
+
+            if($row['user_to'] == "none") { // brak uzytkownika - adresowane do piszącego
+                $user_to = "";;
+            }
+            else {
+                $user_to_obj = new User($connect, $row['user_to']); // stworzenie nowego obiektu użytkownika
+                $user_to_name = $user_to_obj->getFirstAndLastName(); // wypisanie imienia i nazwiska adresata posta
+                $user_to = "to <a href='" . $row['user_to'] ."'>" . $user_to_name . "</a>"; // stworzenie linka do storny profilowej użytkownika
+            }
+
+            // sprawdzenie czy użytkownik piszący ma zamknięte konto
+
+            $added_by_obj = new User($this->connect, $added_by); // obiekt użytkownika tworzacego post
+            if($added_by_obj->isClosed()) {
+                continue; // czyli przejdź na początek
+            }
+
+            $user_details_query = mysqli_query($this->connect, "SELECT first_name, last_name, profile_pic FROM users WHERE username='$added_by'");
+			$user_row = mysqli_fetch_array($user_details_query);
+
+        }
+    }
 		
 }
 
