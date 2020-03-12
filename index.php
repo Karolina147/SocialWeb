@@ -46,9 +46,8 @@
 
         <?php 
 
-		$user_obj = new User($connect, $userLoggedIn);
-		echo $user_obj->getFirstAndLastName();
-
+            $post = new Post($connect, $userLoggedIn);
+            $post->loadPostsFriends();
 		?>
 
     </div>
