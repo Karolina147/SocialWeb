@@ -44,15 +44,41 @@
             <hr>
         </form>
 
-        <?php 
-
-            $post = new Post($connect, $userLoggedIn);
-            $post->loadPostsFriends();
-		?>
+      
+        <!-- div do wyświetlenia postów -->
+        <div class="posts_area"></div> 
+        
+        <!-- wyświetlenie gifu gdy posty się ładują -->
+        <img id="loading" src="assets/images/icons/loading/gif">
 
     </div>
 
+    <script>
 
+        var userLoggedIn = '<?php echo $userLoggedIn; ?>';
+        // jQuery - dopiero jak strona jest załadowana
+        $(document).ready(function() {
+
+            $('#loading').show();
+
+            // AJAX - aby wyświetlić posty
+
+            $.ajax({
+                url: "includes/handlers/ajax_load_posts.php",
+                type: "POST",
+                data: "page=1&userLoggedIn=" + userLoggedIn,
+                cache:false,
+
+                success: function(data) { // kiedy otrzym odp. na zapytanie, data z powyższej linii:  data: "page=1&userLoggedIn=" + userLoggedIn,
+                    $('#loading').hide(); // nie pokazuj już gifa ładującego
+                    $('.posts_area').html(data);; // wstaw posty do posts_area 
+
+                }
+
+            });
+        });
+
+     </script>
 
     </div>
     <!-- zamknięcie diva wrapper - z header.php -->
