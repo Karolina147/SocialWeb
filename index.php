@@ -74,8 +74,39 @@
                     $('.posts_area').html(data);; // wstaw posty do posts_area 
 
                 }
-
             });
+
+            $(window).scroll(function() {
+                var height = $('.posts_area').height(); // div zawierający posty
+                var scroll_top = $(this).scrollTop(); // określenie polożenia góry okna
+                var page = $('.posts_area').find('.nextPage').val();
+                var noMorePosts = $('.posts_area').find('.noMorePosts').val();
+
+                if ((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false') {
+				    $('#loading').show();
+
+                    // AJAX 
+
+                    var ajaxReq = $.ajax({
+                        url: "includes/handlers/ajax_load_posts.php",
+					    type: "POST",
+					    data: "page=" + page + "&userLoggedIn=" + userLoggedIn, // page zdefiniowane wyzej jako kolejne strony
+                        cache:false,
+
+                        success: function(response) {
+						    $('.posts_area').find('.nextPage').remove(); //usuń obecne ".next page"
+                            $('.posts_area').find('.noMorePosts').remove();
+
+                            $('#loading').hide(); // nie pokazuj już gifa ładującego
+                            $('.posts_area').append(response); // dodaj załadowane posty do poprzednio wyświetlonych
+
+                        }
+                    });
+                } // zakończenie ifa
+
+                return false;
+
+            }); //zakończenie $(window).scroll(function() 
         });
 
      </script>
